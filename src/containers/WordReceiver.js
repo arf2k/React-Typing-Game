@@ -1,4 +1,4 @@
-import React, { useState,} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 // import Typer from "../components/Typer.js"
 
@@ -9,13 +9,13 @@ const WordReceiver = () => {
   const [wordMin, setWordMin] = useState(3);
   const [wordMax, setWordMax] = useState(5);
   const [challenge, setChallenge] = useState("easy");
-  const [typedWord, setTypedWord] = useState('')
+  const [typedWord, setTypedWord] = useState("");
 
   const startGame = () => {
-       selectDifficulty(challenge)
-       getWord()
-  }
-  
+    selectDifficulty(challenge);
+    getWord();
+  };
+
   const selectDifficulty = () => {
     if (challenge === "easy") {
       setWordMin(3);
@@ -27,7 +27,6 @@ const WordReceiver = () => {
       setWordMin(7);
       setWordMax(13);
     }
-
   };
 
   const getWord = () => {
@@ -42,13 +41,12 @@ const WordReceiver = () => {
   };
 
   const typeHandler = (e) => {
-       setTypedWord(e.target.value)
-       if(typedWord === randWord) {
-          e.target.value = ""  
-          getWord()
-       }
-  }
-
+    setTypedWord(e.target.value);
+    if (typedWord === randWord) {
+      e.target.value = "";
+      getWord();
+    }
+  };
 
   return (
     <>
@@ -68,12 +66,12 @@ const WordReceiver = () => {
       <h1>Word:</h1>
       <h1>{randWord}</h1>
       <input
-    autoFocus="on"
-      id="typeInput"
-      autoComplete="off"
-      placeholder="Type the word here"
-      onChange={typeHandler}
-    ></input>
+        autoFocus="on"
+        id="typeInput"
+        autoComplete="off"
+        placeholder="Type the word here"
+        onChange={typeHandler}
+      ></input>
     </>
   );
 };
