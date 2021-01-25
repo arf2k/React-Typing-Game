@@ -23,15 +23,12 @@ const WordReceiver = () => {
 
   };
 
- 
-
   const generateWord = () => {
     selectDifficulty(challenge)
      getWord();
   };
 
   
- 
   const getWord = () => {
     axios
       .get(
