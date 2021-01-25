@@ -1,7 +1,6 @@
 
 import './App.css';
 import WordReceiver from './containers/WordReceiver.js'
-import Typer from './components/Typer.js'
 
 const App = () => {
   return (

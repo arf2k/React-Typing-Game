@@ -1,31 +1,28 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 
-// const Typer = (props) => {
-//   const [word, setWord] = useState("");
+const Typer = (props) => {
+  const [word, setWord] = useState("");
 
  
-//   const newWord = () => {
-//        if(word === props.randWord){
-//             props.getWord()
-//        }
-  
-//   }
+ 
 
-//   newWord()
+    const typeHandler = (e) => {
+    setWord(e.target.value);
+    if (word === props.randWord) {
+      e.target.value = "";
+      props.getWord();
+    }
+  };
 
-//   const typeHandler = (e) => {
-//     setWord(e.target.value);
-//   };
+  return (
+    <input
+    autoFocus="true"
+      id="typeInput"
+      autoComplete="off"
+      placeholder="Type the word here"
+      onChange={typeHandler}
+    ></input>
+  );
+};
 
-//   return (
-//     <input
-//     autoFocus="true"
-//       id="typeInput"
-//       autoComplete="off"
-//       placeholder="Type the word here"
-//       onChange={typeHandler}
-//     ></input>
-//   );
-// };
-
-// export default Typer;
+export default Typer;

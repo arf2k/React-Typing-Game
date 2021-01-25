@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import Typer from "../components/Typer.js"
+import Typer from "../components/Typer.js"
 
 let api_key = process.env.REACT_APP_API_KEY;
 
@@ -9,7 +9,6 @@ const WordReceiver = () => {
   const [wordMin, setWordMin] = useState(3);
   const [wordMax, setWordMax] = useState(5);
   const [challenge, setChallenge] = useState("easy");
-  const [typedWord, setTypedWord] = useState("");
 
   const startGame = () => {
     selectDifficulty(challenge);
@@ -40,13 +39,6 @@ const WordReceiver = () => {
       });
   };
 
-  const typeHandler = (e) => {
-    setTypedWord(e.target.value);
-    if (typedWord === randWord) {
-      e.target.value = "";
-      getWord();
-    }
-  };
 
   return (
     <>
@@ -65,13 +57,7 @@ const WordReceiver = () => {
       <button onClick={startGame}>Start Game</button>
       <h1>Word:</h1>
       <h1>{randWord}</h1>
-      <input
-        autoFocus="on"
-        id="typeInput"
-        autoComplete="off"
-        placeholder="Type the word here"
-        onChange={typeHandler}
-      ></input>
+      <Typer randWord={randWord} getWord={getWord}/>
     </>
   );
 };
