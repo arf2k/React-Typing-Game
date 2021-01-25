@@ -4,7 +4,7 @@ import Typer from "../components/Typer.js"
 
 let api_key = process.env.REACT_APP_API_KEY;
 
-const WordReceiver = () => {
+const WordReceiver = (props) => {
   const [randWord, setRandWord] = useState("");
   const [wordMin, setWordMin] = useState(3);
   const [wordMax, setWordMax] = useState(5);
@@ -12,7 +12,9 @@ const WordReceiver = () => {
 
   const startGame = () => {
     selectDifficulty(challenge);
-    getWord();
+    props.startTime()
+    getWord()
+   ;
   };
 
   const selectDifficulty = () => {
@@ -39,6 +41,13 @@ const WordReceiver = () => {
       });
   };
 
+  const gameOver = () => {
+       if(props.seconds === 0){
+            return <h1>Game Over!</h1>
+       }
+       props.resetTime()
+  }
+
 
   return (
     <>
@@ -58,6 +67,7 @@ const WordReceiver = () => {
       <h1>Word:</h1>
       <h1>{randWord}</h1>
       <Typer randWord={randWord} getWord={getWord}/>
+
     </>
   );
 };
