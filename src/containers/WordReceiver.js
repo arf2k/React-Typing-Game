@@ -46,7 +46,6 @@ const WordReceiver = () => {
 
   return (
     <>
-      <h1>Word:</h1>
       <div id="settings" className="settings">
         <form id="settings-form" onChange={(e) => setChallenge(e.target.value)}>
           <label>Set Difficulty</label>
@@ -60,6 +59,7 @@ const WordReceiver = () => {
         </form>
       </div>
       <button onClick={generateWord}>Get Word</button>
+      <h1>Word:</h1>
       <h1>{randWord}</h1>
     </>
   );
