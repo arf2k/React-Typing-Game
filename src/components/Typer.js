@@ -13,7 +13,7 @@ const Typer = (props) => {
 
   return (
     <input
-    autoFocus="true"
+    autoFocus={true}
       id="typeInput"
       autoComplete="off"
       placeholder={props.time === 0 ? "Game Over" : "Type the word here"}

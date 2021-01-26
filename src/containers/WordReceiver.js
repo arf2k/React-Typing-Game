@@ -10,9 +10,9 @@ const WordReceiver = (props) => {
   const [wordMax, setWordMax] = useState(5);
   const [challenge, setChallenge] = useState("easy");
 
-  const startGame = () => {
+  const beginGame = () => {
     selectDifficulty(challenge);
-    props.toggle()
+    props.startGame()
     getWord()
    ;
   };
@@ -55,7 +55,7 @@ const WordReceiver = (props) => {
       <div id="settings" className="settings">
         <form id="settings-form" onChange={(e) => setChallenge(e.target.value)}>
           <label>Set Difficulty</label>
-          <div class="selectionDiv">
+          <div className="selectionDiv">
             <select id="difficulty">
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
@@ -64,7 +64,6 @@ const WordReceiver = (props) => {
           </div>
         </form>
       </div>
-      <button onClick={startGame}>Start Game</button>
       <h1>Word:</h1>
       <h1>{randWord}</h1>
       <Typer randWord={randWord} getWord={getWord}/>
