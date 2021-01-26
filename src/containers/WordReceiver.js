@@ -12,7 +12,7 @@ const WordReceiver = (props) => {
 
   const startGame = () => {
     selectDifficulty(challenge);
-    props.startTime()
+    props.toggle()
     getWord()
    ;
   };
@@ -45,9 +45,10 @@ const WordReceiver = (props) => {
        if(props.seconds === 0){
             return <h1>Game Over!</h1>
        }
-       props.resetTime()
+       props.reset()
   }
 
+  gameOver()
 
   return (
     <>
