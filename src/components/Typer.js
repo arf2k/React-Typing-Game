@@ -2,8 +2,16 @@ import React, { useState } from "react";
 
 const Typer = (props) => {
   const [word, setWord] = useState("");
+  // const [play, setPlay] = useState(false)
 
-    const typeHandler = (e) => {
+  // const playing = () => {
+  //   while(!props.paused) {
+  //     setPlay(true)
+  //   }
+  // }  
+
+  
+  const typeHandler = (e) => {
     setWord(e.target.value);
     if (word === props.randWord) {
       e.target.value = "";
@@ -13,10 +21,10 @@ const Typer = (props) => {
 
   return (
     <input
-    autoFocus={true}
+     autoFocus
       id="typeInput"
       autoComplete="off"
-      placeholder={props.time === 0 ? "Game Over" : "Type the word here"}
+      placeholder= "Type the word here"
       onChange={typeHandler}
     ></input>
   );
