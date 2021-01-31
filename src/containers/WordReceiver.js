@@ -28,7 +28,6 @@ const WordReceiver = (props) => {
     }
   };
 
-  console.log(challenge)
   // const getWord = () => {
   //   axios
   //     .get(
