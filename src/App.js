@@ -1,8 +1,6 @@
 import './App.css';
-// import GameContainer from './containers/GameContainer.js'
-// import WordReceiver from './containers/WordReceiver.js'
-// import TimeScore from './containers/TimeScore.js'
-import Typer from "./components/Typer.js"
+import GameContainer from "./containers/GameContainer.js"
+import styled from 'styled-components'
 
 
 
@@ -10,11 +8,16 @@ import Typer from "./components/Typer.js"
 const App = () => {
   return (
     <>
-   <h1>Alex's Typing Game</h1>
-  <Typer/>
+   <Title>Alex's Typing Game</Title>
+  <GameContainer/>
 
    </>
   );
 }
 
 export default App;
+
+const Title = styled.h1`
+font-family: Monotype News Gothic;
+text-align: center
+`

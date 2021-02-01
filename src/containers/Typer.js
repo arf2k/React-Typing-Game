@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import GameContainer from '../containers/GameContainer.js'
+import Countdown from './Countdown.js'
 import axios from "axios";
+import { Button } from 'semantic-ui-react';
+import styled from 'styled-components'
 let api_key = process.env.REACT_APP_API_KEY;
 
 
@@ -9,16 +11,6 @@ const Typer = (props) => {
   const [word, setWord] = useState("");
   const [wordMin, setWordMin] = useState(3);
   const [wordMax, setWordMax] = useState(5)
-  const [clicked, setClicked] = useState(false)
-
-
-  // const [play, setPlay] = useState(false)
-
-  // const playing = () => {
-  //   while(!props.paused) {
-  //     setPlay(true)
-  //   }
-  // }  
 
   const getWord = () => {
     axios
@@ -27,20 +19,30 @@ const Typer = (props) => {
       )
       .then((response) => {
         setRandWord(response.data.word)
-        setClicked(true);
+       ;
       });
   };
-  
+
+
   const typeHandler = (e) => {
     setWord(e.target.value);
     if (word === randWord) {
       e.target.value = "";
-      getWord();
+      getWord()
+      increaseDiff();
     }
   };
 
+  const increaseDiff = () => {
+    setWordMin(wordMin + 1)
+    setWordMax(wordMax + 1)
+  }
+
+
   return (
    <>
+   <Button className="ui red button" onClick={getWord}>Start</ Button>
+    <Countdown/>
     <input
      autoFocus
       id="typeInput"
@@ -48,10 +50,12 @@ const Typer = (props) => {
       placeholder= "Type the word here"
       onChange={typeHandler}
     ></input>
-    <button onClick={getWord}>Start</button>
-    <GameContainer clicked={clicked} randWord={randWord}/>
     </>
   );
 };
 
 export default Typer;
+
+// const Center = styled.div`
+// justify-content: center;
+// `
