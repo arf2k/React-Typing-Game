@@ -12,8 +12,6 @@ const Timer = (props) => {
       </>
  )
 
-
-
 }
 
 export default Timer
@@ -25,7 +23,6 @@ padding: 30px;
 margin: 20px;
 width: 150px;
 border-radius: 50%;
-
 `
 
 const Time = styled.h1

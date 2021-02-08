@@ -3,14 +3,11 @@ import GameContainer from "./containers/GameContainer.js"
 import styled from 'styled-components'
 
 
-
-
 const App = () => {
   return (
     <>
    <Title>Alex's Typing Game</Title>
   <GameContainer/>
-
    </>
   );
 }

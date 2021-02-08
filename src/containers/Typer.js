@@ -3,6 +3,8 @@ import Countdown from './Countdown.js'
 import axios from "axios";
 import { Button } from 'semantic-ui-react';
 import styled from 'styled-components'
+import Speaking from './Speaking.js'
+import WordReceiver from "../components/WordReceiver.js";
 let api_key = process.env.REACT_APP_API_KEY;
 
 
@@ -18,6 +20,7 @@ const Typer = (props) => {
         `https://api.wordnik.com/v4/words.json/randomWord?&minLength=${wordMin}&maxLength=${wordMax}&api_key=${api_key}`
       )
       .then((response) => {
+        console.log(response)
         setRandWord(response.data.word)
        ;
       });
@@ -43,6 +46,8 @@ const Typer = (props) => {
    <>
    <Button className="ui red button" onClick={getWord}>Start</ Button>
     <Countdown/>
+    <WordReceiver randWord={randWord}/>
+    <Speaking randWord={randWord}/>
     <input
      autoFocus
       id="typeInput"
