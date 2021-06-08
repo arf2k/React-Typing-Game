@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import Countdown from './Countdown.js'
 import axios from "axios";
 import { Button } from 'semantic-ui-react';
-import styled from 'styled-components'
 import Speaking from './Speaking.js'
 import WordReceiver from "../components/WordReceiver.js";
 let api_key = process.env.REACT_APP_API_KEY;
 
 
-const Typer = (props) => {
+const Typer = () => {
   const [randWord, setRandWord] = useState("");
   const [word, setWord] = useState("");
   const [wordMin, setWordMin] = useState(3);
@@ -25,6 +24,9 @@ const Typer = (props) => {
        ;
       });
   };
+
+
+
 
 
   const typeHandler = (e) => {

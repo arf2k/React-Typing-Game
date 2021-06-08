@@ -1,22 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const Speaking = (props) => {
+const Speaking = ({ randWord }) => {
+  const synth = window.speechSynthesis;
 
-const synth = window.speechSynthesis
+  const utter = new SpeechSynthesisUtterance(randWord);
 
-const utter  = new SpeechSynthesisUtterance(props.randWord)
+  return <>{synth.speak(utter)}</>;
+};
 
-
-
-
-   return (
-      <>
-   {synth.speak(utter)}
-       </>
-   )
-}
-
-
-
-
-export default Speaking
+export default Speaking;

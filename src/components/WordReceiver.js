@@ -1,12 +1,12 @@
 import React from "react";
 import styled from 'styled-components'
 
-const WordReceiver = (props) => {
+const WordReceiver = ({randWord}) => {
  
   return (
     <>
      <Title>Type This:</Title>
-      <Title>{props.randWord}</Title>
+      <Title>{randWord}</Title>
     </>
   );
 };

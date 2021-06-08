@@ -2,7 +2,7 @@ import React, { useState, useEffect, useInterval } from "react";
 import WordReceiver from "../components/WordReceiver";
 import Timer from "../components/Timer.js";
 
-const Countdown = (props) => {
+const Countdown = ({randWord}) => {
   const [seconds, setSeconds] = useState(10);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const Countdown = (props) => {
   return (
     <>
       <Timer seconds={seconds} />
-      { (seconds > 0)? <WordReceiver randWord={props.randWord}/> : null }
+      { (seconds > 0)? <WordReceiver randWord={randWord}/> : null }
     </>
   );
 };
